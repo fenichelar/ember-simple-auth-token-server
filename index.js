@@ -28,6 +28,13 @@ app.post('/api/api-token-refresh', function(req, res) {
   });
 });
 
+app.get('/api/users', function(req, res) {
+  var token = req.headers.authorization.split('Bearer ')[1];
+  var decoded = jwt.verify(token, 'secret');
+  res.send(decoded);
+});
+
+
 app.listen(app.get('port'), function() {
   console.log('Running on port', app.get('port'));
 });
