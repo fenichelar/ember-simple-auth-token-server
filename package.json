@@ -1,0 +1,16 @@
+{
+  "name": "simple-auth-token-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "express": "^4.12.4",
+    "jsonwebtoken": "^5.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
