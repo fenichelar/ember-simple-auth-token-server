@@ -1,17 +1,13 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 var jwt = require('jsonwebtoken');
 
 var app = express();
 
 app.set('port', (process.env.PORT || 3000));
+app.use(cors());
 app.use(bodyParser.json());
-
-app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
 
 app.post('/api/api-token-auth', function(req, res) {
   var token = jwt.sign(req.body, 'secret', {expiresInSeconds: 10});
