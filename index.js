@@ -9,18 +9,18 @@ app.set('port', (process.env.PORT || 3000));
 app.use(cors());
 app.use(bodyParser.json());
 
-app.post('/api/api-token-auth', function(req, res) {
-  var token = jwt.sign(req.body, 'secret', {expiresInSeconds: 10});
+app.post('/api/token-auth', function(req, res) {
+  var token = jwt.sign(req.body, 'secret', { expiresInSeconds: 10 });
   res.send({
     token: token
   });
 });
 
-app.post('/api/api-token-refresh', function(req, res) {
+app.post('/api/token-refresh', function(req, res) {
   var decoded = jwt.verify(req.body.token, 'secret');
 
   res.send({
-    token: jwt.sign(decoded, 'secret', {expiresInSeconds: 10})
+    token: jwt.sign(decoded, 'secret', { expiresInSeconds: 10 })
   });
 });
 
